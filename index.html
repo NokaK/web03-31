@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="test"></div>
+
+
+    <script>
+        const myGirls = ["Cecilie", "Lone"];
+        const myBoys = ["Emil", "Tobias", "Linus"];
+        const test = ["Emil", "Tobias", "Linus"];
+
+        const myChildren = myGirls.concat(myBoys);
+
+
+        const newArr = [...myGirls, ...myBoys, ...test]
+        // console.log(myChildren, newArr)
+
+        const person = {
+            name: 'John',
+            age: 30,
+            city: 'New York'
+        }
+
+        const newPerson = { ...person, isRegistered: true }
+
+        const myArr = [[1, 2], [3, 4, [5, 7]], [5, 6]];
+        const newFlatArr = myArr.flat();
+        const newFlatArr2 = newFlatArr.flat()
+        // console.log(myArr[1][2][1])
+        // console.log(newFlatArr, newFlatArr2)
+
+
+        const myArr2 = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+        delete myArr2[3]
+
+        const filterNewArr = myArr2.filter((item) => item !== undefined)
+
+        document.getElementById("test").innerHTML = `<div class="box"><p>${filterNewArr.toString()}</p></div>`
+
+        // document.getElementById("demo").textContent = filterNewArr.toString()
+
+
+
+
+
+        const personsArr = [{ firstName: 'John', age: 30, point: 10, profession: 'front end developer', lastName: 'Giorgadze' },
+        { firstName: 'Ana', age: 20, point: 5, profession: 'designer', lastName: 'Giorgadze' },
+        { firstName: 'Lasha', age: 50, point: 6, profession: 'beck end developer', lastName: 'Giorgadze' },
+        { firstName: 'Giorgi', age: 20, point: 8, profession: 'mobile developer', lastName: 'Giorgadze' },
+        { firstName: 'Mamuka', age: 24, point: 9, profession: 'web developer', lastName: 'Giorgadze' }]
+
+
+        personsArr.forEach((person) => {
+            console.log(`${person.firstName} ${person.lastName} ${person.age} ${person.point} ${person.profession}`)
+        })
+
+        const newPersonArr = personsArr.map((person, index) => {
+            return `${index + 1} ${person.firstName} ${person.lastName} `
+        })
+
+        const newPersonArr2 = personsArr.map(person => person.point * 2)
+
+
+        const newPerson3 = personsArr.map(person => {
+            return {
+                age: person.age,
+                profession: person.profession,
+                isRegistered: true
+            }
+        })
+
+
+        for (let i = 0; i < newPersonArr.length; i++) {
+            const p = document.createElement('p')
+            p.textContent = newPersonArr[i]
+            const test = document.getElementById('test')
+            test.appendChild(p)
+            // document.getElementById('test').appendChild(p)
+        }
+
+        let sum = 0
+        for (let i = 0; i < personsArr.length; i++) {
+            sum = sum + personsArr[i].point
+        }
+
+
+    </script>
+</body>
+
+</html>
